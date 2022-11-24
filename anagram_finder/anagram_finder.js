@@ -4,7 +4,7 @@ const AnagramFinder = function (word) {
 
 AnagramFinder.prototype.findAnagrams = function (otherWords) {
   const lengthCheck = (possWord) => {
-    return possWord.length === this.word.join("").length;
+    return possWord.length === this.word.length;
   };
 
   const sameLetters = (possWord) => {
@@ -20,9 +20,9 @@ AnagramFinder.prototype.findAnagrams = function (otherWords) {
 
   const result = otherWords.filter((otherWord) => {
     return (
-      lengthCheck(otherWord) === true &&
-      sameLetters(otherWord) === true &&
-      sameWord(otherWord) === false
+      lengthCheck(otherWord) &&
+      sameLetters(otherWord) &&
+      !sameWord(otherWord)
     );
   });
   return result;
